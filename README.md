@@ -1,6 +1,6 @@
 #  NoteGuard
 
-![ NoteGuard]()
+
 <img width="959" alt="image (2)" src="https://github.com/user-attachments/assets/7a3be271-d962-47dc-a3e0-cec37e33c073">
 
 ## Introduction
