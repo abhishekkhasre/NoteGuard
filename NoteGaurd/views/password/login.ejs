@@ -1,0 +1,94 @@
+<!-- Custom CSS -->
+<style>
+  body {
+    background-color: #ffffff; /* White background for the whole page */
+  }
+
+  .login-card {
+    max-width: 400px;
+    margin: 0 auto;
+    margin-top: 50px; /* Margin for spacing */
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    background-color: #ffffff; /* White background for the card */
+  }
+
+  .login-card .card-body {
+    padding: 30px;
+  }
+
+  .login-card .card-title {
+    font-size: 28px;
+    font-weight: bold;
+    margin-bottom: 30px;
+    color: #FFD700; /* Yellow color for the title */
+  }
+
+  .login-card .form-control {
+    border-color: #000000; /* Black border for input fields */
+  }
+
+  .login-card .form-control:focus {
+    box-shadow: none;
+    border-color: #FFD700; /* Yellow border on focus */
+  }
+
+  .login-card .btn-primary {
+    background-color: #FFD700; /* Yellow background for the button */
+    border: none;
+    color: #000000; /* Black text for the button */
+    width: 100%;
+  }
+
+  .login-card .btn-primary:hover {
+    background-color: #FFC107; /* Slightly darker yellow for hover effect */
+  }
+
+  .login-card .create-account {
+    margin-top: 20px;
+    text-align: center;
+    color: #000000; /* Black text for the create account link */
+  }
+
+  .login-card .create-account a {
+    color: #FFD700; /* Yellow color for the link */
+    text-decoration: none;
+  }
+
+  .login-card .create-account a:hover {
+    text-decoration: underline; /* Underline effect on hover */
+  }
+</style>
+
+ 
+ 
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-6 mx-auto">
+        <div class="card login-card">
+          <div class="card-body">
+            <h1 class="card-title text-center">Login in VaultLock</h1>
+            <% if (error) { %>
+            <p class="text-danger text-center"><%= error %></p>
+            <% } %>
+            <form action="/password/login" method="POST">
+              <div class="mb-3">
+                <label for="email" class="form-label">Email:</label>
+                <input type="email" class="form-control" id="email" name="email" required>
+              </div>
+              <div class="mb-3">
+                <label for="password" class="form-label">Password:</label>
+                <input type="password" class="form-control" id="password" name="password" required>
+              </div>
+              <button type="submit" class="btn btn-primary">Login</button>
+            </form>
+            <p>Forgot your password? <a href="/password/forget-password">Reset it here</a></p>
+            <div class="create-account">
+              <p>Don't have an account? <a href="/password/signup">Sign up</a></p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+ 

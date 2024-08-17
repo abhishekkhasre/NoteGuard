@@ -1,0 +1,67 @@
+</style>
+
+<div class="container-fluid container-fluid-custom pb-5 mb-5">
+  <div class="row mb-4">
+    <div class="col">
+      <nav aria-label="breadcrumb">
+        <ol class="breadcrumb">
+          <li class="breadcrumb-item"><a href="/bookmark">Bookmark</a></li>
+          <li class="breadcrumb-item active">Add Bookmark</li>
+        </ol>
+      </nav>
+    </div>
+  </div>
+  <div class="row mb-4">
+    <div class="col">
+      <h1 class="h3">Add Bookmark</h1>
+    </div>
+  </div>
+  <form id="form" action="/bookmark/add" method="POST" onsubmit="return validateForm(event)">
+    <div class="form-group mb-4">
+      <label for="title" class="form-label">Title</label>
+      <input type="text" class="form-control" id="title" name="title" placeholder="title" required maxlength="100" pattern="^(?!\s*$).+">
+    </div>
+
+    <div class="form-group mb-4">
+      <label for="url" class="form-label">URL</label>
+      <input type="url" class="form-control" id="url" name="url" placeholder="url" required pattern="^(https?|ftp)://[^\s/$.?#].[^\s]*$">
+    </div>
+
+    <div class="form-group mb-4">
+      <label for="tags" class="form-label">Tags</label>
+      <input type="text" class="form-control" id="tags" name="tags" placeholder="tags" required maxlength="20" pattern="^(?!\s*$).+">
+    </div>
+
+    <div class="form-group mb-4">
+      <label for="body" class="form-label">Description</label>
+      <textarea class="form-control" id="body" name="body" placeholder="Take a note..." rows="8" required maxlength="1000" oninput="validateTextArea(this)"></textarea>
+
+      <div class="invalid-feedback">Please enter a valid note body.</div>
+    </div>
+
+    <div class="form-group">
+      <button type="submit" class="btn btn-primary btn-lg">+ Add Bookmark</button>
+    </div>
+  </form>
+</div>
+
+<script>
+  function validateTextArea(textArea) {
+    const trimmedValue = textArea.value.trim();
+    if (trimmedValue === "") {
+      textArea.setCustomValidity("Please enter a valid description.");
+    } else {
+      textArea.setCustomValidity("");
+    }
+  }
+
+  function validateForm(event) {
+    const form = document.getElementById("form");
+    if (!form.checkValidity()) {
+      event.preventDefault();
+      event.stopPropagation();
+    }
+    form.classList.add("was-validated");
+    return form.checkValidity();
+  }
+</script>

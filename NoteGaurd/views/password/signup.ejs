@@ -1,0 +1,80 @@
+ 
+  <!-- Custom CSS -->
+  <style>
+    body {
+    background-color: #f8f9fa;
+  }
+ 
+    .signup-card {
+      max-width: 400px;
+      margin: 0 auto;
+      margin-top: 50px;
+      border-radius: 10px;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    }
+
+    .signup-card .card-body {
+      padding: 30px;
+    }
+
+    .signup-card .card-title {
+      font-size: 28px;
+      font-weight: bold;
+      margin-bottom: 30px;
+      color: #333;
+    }
+
+    .signup-card .form-control {
+      border-color: #ccc;
+    }
+
+    .signup-card .form-control:focus {
+      box-shadow: none;
+      border-color: #80bdff;
+    }
+
+    .signup-card .btn-primary {
+      background-color: #007bff;
+      border: none;
+      width: 100%;
+    }
+
+    .signup-card .btn-primary:hover {
+      background-color: #0056b3;
+    }
+
+    .signup-card .login-link {
+      margin-top: 20px;
+      text-align: center;
+    }
+  </style>
+ 
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-6 mx-auto">
+        <div class="card signup-card">
+          <div class="card-body">
+            <h1 class="card-title text-center">Signup in VaultLock</h1>
+            <% if (error) { %>
+            <p class="text-danger text-center"><%= error %></p>
+            <% } %>
+            <form action="/password/signup" method="POST">
+              <div class="mb-3">
+                <label for="email" class="form-label">Email:</label>
+                <input type="email" class="form-control" id="email" name="email" required>
+              </div>
+              <div class="mb-3">
+                <label for="password" class="form-label">Password:</label>
+                <input type="password" class="form-control" id="password" name="password" required>
+              </div>
+              <button type="submit" class="btn btn-primary">Sign up</button>
+            </form>
+            <div class="login-link">
+              <p>Already have an account? <a href="/password/login">Login</a></p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+ 

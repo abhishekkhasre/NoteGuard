@@ -1,0 +1,146 @@
+<!-- <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"> -->
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+
+<style>
+    /* Customize the page as per your preference */
+    /* body {
+        background-color: #f8f9fa;
+        font-family: Arial, sans-serif;
+    } */
+
+    .faq-section {
+        padding: 80px 0;
+        text-align: center;
+    }
+
+    .section-title {
+        /* font-size: 36px;
+        font-weight: bold;
+        color: #333; */
+        margin-bottom: 30px;
+    }
+
+    .question {
+        cursor: pointer;
+        padding: 10px;
+        background-color: #fff;
+        border: none;
+        border-bottom: 1px solid #dee2e6;
+        text-align: left;
+    }
+
+    .question:hover {
+        background-color: #f8f9fa;
+    }
+
+    .question:focus {
+        outline: none;
+    }
+
+    .question-icon {
+        font-size: 24px;
+        margin-right: 10px;
+    }
+
+    .answer {
+        display: none;
+        padding: 20px;
+        background-color: #fff;
+        border-radius: 5px;
+    }
+
+    .answer p {
+        margin-bottom: 0;
+    }
+</style>
+
+<section class="faq-section">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 offset-lg-2 text-center">
+                <h2 class="section-title mb-4">Frequently Asked Questions</h2>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-lg-6 offset-lg-3">
+                <div class="accordion" id="accordion">
+                    <div class="card">
+                        <button class="btn btn-link question" data-toggle="collapse" data-target="#collapseOne"
+                            aria-expanded="true" aria-controls="collapseOne">
+                            <i class="fas fa-question-circle question-icon"></i> What is  NoteGuard?
+                        </button>
+                        <div id="collapseOne" class="collapse show" data-parent="#accordion">
+                            <div class="card-body answer">
+                                 NoteGuard is a comprehensive platform that provides note-taking, bookmark
+                                management, and password storage features. It helps you stay organized and manage
+                                your digital life efficiently.
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="card">
+                        <button class="btn btn-link question" data-toggle="collapse" data-target="#collapseTwo"
+                            aria-expanded="false" aria-controls="collapseTwo">
+                            <i class="fas fa-question-circle question-icon"></i> How can I create a new note?
+                        </button>
+                        <div id="collapseTwo" class="collapse" data-parent="#accordion">
+                            <div class="card-body answer">
+                                To create a new note, click on the "New Note" button in the dashboard. A blank note
+                                will be displayed where you can enter your content. Click "Save" to save the note.
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="card">
+                        <button class="btn btn-link question" data-toggle="collapse" data-target="#collapseThree"
+                            aria-expanded="false" aria-controls="collapseThree">
+                            <i class="fas fa-question-circle question-icon"></i> How can I organize my bookmarks?
+                        </button>
+                        <div id="collapseThree" class="collapse" data-parent="#accordion">
+                            <div class="card-body answer">
+                                 NoteGuard provides a bookmark manager that allows you to create folders and
+                                categorize your bookmarks. You can drag and drop bookmarks into folders for better
+                                organization.
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="card">
+                        <button class="btn btn-link question" data-toggle="collapse" data-target="#collapseFour"
+                            aria-expanded="false" aria-controls="collapseFour">
+                            <i class="fas fa-question-circle question-icon"></i> Is my password stored securely?
+                        </button>
+                        <div id="collapseFour" class="collapse" data-parent="#accordion">
+                            <div class="card-body answer">
+                                 NoteGuard ensures the security of your passwords by using encryption and
+                                following industry best practices. Your passwords are stored securely and can only
+                                be accessed by you.
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+<script>
+    $(document).ready(function () {
+        $('.question').click(function () {
+            var $answer = $(this).next('.collapse').find('.answer');
+
+            $('.answer').not($answer).slideUp();
+            $('.question').not(this).removeClass('active');
+
+            $(this).toggleClass('active');
+            $answer.slideToggle();
+        });
+
+        // Open the first question initially
+        $('.question:first').addClass('active');
+        $('.question:first').next('.collapse').find('.answer').slideDown();
+    });
+</script>

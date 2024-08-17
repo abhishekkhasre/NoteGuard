@@ -1,0 +1,32 @@
+{
+  "name": "notes",
+  "version": "1.0.0",
+  "description": "It is a full stack website in which user can keep their notes. I have used passport to make authentication and authorization, used mongo db for crud operation, bcrypt for encryption, ejs template engine, etc",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "nodemon server.js"
+  },
+  "author": "Aman Agrahari",
+  "license": "ISC",
+  "dependencies": {
+    "bcrypt": "^5.1.0",
+    "connect-mongo": "^4.6.0",
+    "cookie-parser": "^1.4.6",
+    "crypto-js": "^4.1.1",
+    "dotenv": "^16.3.1",
+    "ejs": "^3.1.9",
+    "express": "^4.18.2",
+    "express-ejs-layouts": "^2.5.1",
+    "express-session": "^1.17.3",
+    "jsonwebtoken": "^9.0.1",
+    "method-override": "^3.0.0",
+    "mongoose": "^6.11.4",
+    "nodemailer": "^6.9.4",
+    "passport": "^0.6.0",
+    "passport-google-oauth20": "^2.0.0"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.22"
+  }
+}

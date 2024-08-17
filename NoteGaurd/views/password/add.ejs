@@ -1,0 +1,116 @@
+<div class="container-fluid container-fluid-custom pb-5 mb-5">
+  <div class="row mb-4">
+    <div class="col">
+      <nav aria-label="breadcrumb">
+        <ol class="breadcrumb">
+          <li class="breadcrumb-item"><a href="/password">Password</a></li>
+          <li class="breadcrumb-item active">Add Password</li>
+        </ol>
+      </nav>
+    </div>
+  </div>
+  <div class="row mb-4">
+    <div class="col">
+      <h1 class="h3">Add Password</h1>
+    </div>
+  </div>
+  <form id="form" action="/password/add" method="POST" onsubmit="return validateForm(event)">
+    <div class="form-group mb-4">
+      <label for="website" class="form-label">Website</label>
+        <input type="text" class="form-control" id="website" name="website" placeholder="Website"
+          maxlength="50" required pattern="^(?!\s*$).+">
+          <div class="invalid-feedback">Please enter a valid title</div>
+    </div>
+  
+    <div class="form-group mb-4">
+      <label for="username" class="form-label">Username</label>
+
+        <input type="text" class="form-control" id="username" name="username" placeholder="Username"
+          maxlength="30" required pattern="^(?!\s*$).+">
+          <div class="invalid-feedback">Please enter a valid username</div>
+    </div>
+
+    <div class="form-group mb-4">
+      <label for="password" class="form-label">Password</label>
+          <input type="text" class="form-control" id="password" name="password"
+            placeholder="Password" minlength="8" maxlength="30" required pattern="^(?!\s*$).+">
+            <div class="invalid-feedback">Please enter a valid password of min 8 length</div>
+          <!-- <div class="visibility-icon-container" onclick="togglePasswordVisibility()">
+              <i id="togglePasswordIcon" class="fas fa-eye"></i>
+            </div> -->
+    </div>
+
+    <div class="form-group mb-4">
+      <label for="category" class="form-label">Category</label>
+        <input type="text" class="form-control" id="category" name="category" placeholder="Category"
+          maxlength="20" required pattern="^(?!\s*$).+">
+    </div>
+
+    <div class="form-group">
+        <button type="submit" class="btn btn-primary btn-lg">+ Add Password</button>
+    </div>
+  </form>
+</div>
+
+
+
+
+
+<script>
+   function validateForm(event)
+  {
+    const form = document.getElementById("form");
+    if(!form.checkValidity())
+    {
+      event.preventDefault();
+      event.stopPropagation();
+    }
+    else{
+      form.classList.add("was-validated");
+      return form.checkValidity();
+    }
+  }
+</script>
+
+
+<!--   
+  <style>
+    .form-control-eye {
+      padding-right: 40px;
+    }
+    
+    .form-control-eye:focus {
+      padding-right: 38px;
+    }
+    
+    .visibility-icon-container {
+      position: relative;
+      pointer-events: none;
+    }
+    
+    .visibility-icon-container i {
+      position: absolute;
+      right: 10px;
+      top: 50%;
+      transform: translateY(-50%);
+      cursor: pointer;
+    }
+  </style>
+  
+  <script>
+    function togglePasswordVisibility() {
+      var passwordInput = document.getElementById("password");
+      var togglePasswordIcon = document.getElementById("togglePasswordIcon");
+  
+      if (passwordInput.type === "password") {
+        passwordInput.type = "text";
+        togglePasswordIcon.classList.remove("fa-eye");
+        togglePasswordIcon.classList.add("fa-eye-slash");
+      } else {
+        passwordInput.type = "password";
+        togglePasswordIcon.classList.remove("fa-eye-slash");
+        togglePasswordIcon.classList.add("fa-eye");
+      }
+    }
+  </script>
+   -->

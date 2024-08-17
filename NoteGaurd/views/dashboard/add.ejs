@@ -1,0 +1,59 @@
+<div class="container-fluid container-fluid-custom pb-5 mb-5">
+  <div class="row mb-4">
+    <div class="col">
+      <nav aria-label="breadcrumb">
+        <ol class="breadcrumb">
+          <li class="breadcrumb-item"><a href="/dashboard">Dashboard</a></li>
+          <li class="breadcrumb-item active" aria-current="page">Add Note</li>
+        </ol>
+      </nav>
+    </div>
+  </div>
+
+  <div class="row mb-4">
+    <div class="col">
+      <h1 class="h3">Add Note</h1>
+    </div>
+  </div>
+
+  <form id="form" action="/dashboard/add" method="POST" onsubmit="return validateForm(event)">
+    <div class="form-group mb-4">
+      <label for="title" class="form-label">Title</label>
+      <input type="text" class="form-control" id="title" name="title" placeholder="Title" required maxlength="100" pattern="^(?!\s*$).+" >
+    </div>
+
+    <div class="form-group mb-4">
+      <label for="body" class="form-label">Take a note...</label>
+      <textarea class="form-control" id="body" name="body" placeholder="Take a note..." rows="12" required maxlength="1000" oninput="validateTextArea(this)"></textarea>
+    </div>
+
+    <div class="form-group">
+      <button type="submit" class="btn btn-primary btn-lg">+ Add Note</button>
+    </div>
+  </form>
+</div>
+
+<script>
+ 
+ function validateTextArea(textArea) {
+    const trimmedValue = textArea.value.trim();
+    if (trimmedValue === "") {
+      textArea.setCustomValidity("Please enter a valid note body.");
+    } else {
+      textArea.setCustomValidity("");
+    }
+  }
+   
+
+  function validateForm(event)
+  {
+    const form = document.getElementById("form");
+    if(!form.checkValidity()){
+      event.preventDefault();
+      event.stopPropagation();
+    }
+
+    form.classList.add("was-validated");
+    return form.checkValidity();
+  }
+</script>
